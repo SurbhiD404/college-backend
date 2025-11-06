@@ -10,6 +10,21 @@ from .models import Profile
 from rest_framework_simplejwt.tokens import RefreshToken
 from .serializers import UpdateUserSerializer
 from rest_framework_simplejwt.exceptions import TokenError
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def create_admin(request):
+    if User.objects.filter(username='admin').exists():
+        return JsonResponse({'error': 'Admin exists!'})
+    
+    user = User.objects.create_superuser(
+        username='admin',
+        email='admin@akgec.ac.in',
+        password='admin123'
+    )
+    return JsonResponse({'msg': 'Admin created! Login: admin/admin123'})
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register(request):
