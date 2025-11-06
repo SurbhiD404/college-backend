@@ -101,3 +101,18 @@ def update_user_view(request):
         return Response({"msg": "Updated!", "user": {"username": request.user.username, "email": request.user.email}})
     return Response(serializer.errors, status=400)
 
+
+
+@api_view(['GET'])
+def root(request):
+    return JsonResponse({
+        "message": "College Community Backend API",
+        "version": "1.0",
+        "endpoints": {
+            "auth": "/api/auth/register/",
+            "events": "/api/events/list/",
+            "forums": "/api/forums/posts/",
+            "lostfound": "/api/lostfound/chat/",
+            "ml": "/api/ml/predict/"
+        }
+    })

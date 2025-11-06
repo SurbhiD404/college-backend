@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from core.views import root
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', root, name='root'),
     path('api/auth/', include('core.urls')),
     path('api/forums/', include('forums.urls')),
     path('api/lostfound/', include('lostfound.urls')),
