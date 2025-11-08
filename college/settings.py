@@ -71,7 +71,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 #     'django.contrib.messages.middleware.MessageMiddleware',
 #     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 # ]
-# CORS_ALLOW_ALL_ORIGINS = True  # Frontend connections
+# CORS_ALLOW_ALL_ORIGINS = True  
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication'],
@@ -228,7 +228,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ADD THIS
+    'whitenoise.middleware.WhiteNoiseMiddleware',  
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -240,7 +240,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://your-frontend.vercel.app",  # CHANGE LATER
+    " https://college-community-website-coral.vercel.app" 
 ]
 
 
@@ -274,10 +274,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'college.wsgi.application'
 
 
-DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(config('DATABASE_URL'))
+# }
 
+DATABASES = {
+    'default': {
+         "ENGINE": 'django.db.backends.postgresql',
+         "NAME": 'postgres',     
+         "USER": 'postgres',          
+         "PASSWORD": 'collegeadmin',          
+         "HOST": '127.0.0.1',
+         "PORT": '5432',
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
