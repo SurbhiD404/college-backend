@@ -4,3 +4,20 @@ __pycache__/
 db.sqlite3
 media/
 staticfiles/
+
+# Python and Django
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+
+# Environment
+venv/
+.env
+
+# VS Code
+.vscode/
+
+# Media and static (optional)
+media/
+staticfiles/
