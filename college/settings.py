@@ -135,6 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ### CORS FOR YOUR VITE PROJECT
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://college-backend-1-5pig.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
