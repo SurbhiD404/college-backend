@@ -71,18 +71,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'college.wsgi.application'
 
+import dj_database_url
+from decouple import config
 
-### DATABASE LOCAL (POSTGRES)
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'collegeadmin',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse(
+        config('DATABASE_URL', default='sqlite:///db.sqlite3')
+    )
 }
+
 
 
 REST_FRAMEWORK = {
